@@ -8,11 +8,13 @@
     "gulp-bower": "0.x",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "3.0.4",
+    "gulp-babel": "^5.2.1",
     "gulp-replace": "^0.5.3",
     "gulp-clean": "^0.3.1",
     "gulp-sequence": "^0.4.0",
     "gulp-cond": "^1.0.0",
     "gulp-load-plugins": "1.0.0-rc.1",
+    "gulp-crisper": "https://github.com/wojtkowiak/gulp-crisper",
     "lodash": "^3.10.1",
     "merge-stream": "^1.0.0",
     "glob": "^5.0.14"
