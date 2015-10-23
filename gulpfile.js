@@ -42,10 +42,18 @@ gulp.task('dev', $.sequence('clean', ['assets', 'html']));
 gulp.task('default', ['dev']);
 
 gulp.task('build', ['dev'], function () {
-    return gulp.src('./dist/my-*/*.html')
-            .pipe($.replace(/\.\.\/\.\.\/(?!my)/gmi, '../'))
-            .pipe(gulp.dest('./dist/'));
 });
+
+// Runs the webserver that will server the demo page on localhost
+gulp.task('serve', ['build'], function () {
+    gulp.src('.')
+        .pipe($.webserver({
+            host: 'localhost',
+            open: true,
+            port: 5050
+        }));
+});
+
 
 /**
  * Watch tasks.
