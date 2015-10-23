@@ -1,0 +1,16 @@
+.idea
+*/
+!arc-*
+!arc-*/**
+arc-*/dist
+
+!home
+!home/**
+
+!gulp
+!gulp/**
+
+*.pyc
+*.iml
+
+bower

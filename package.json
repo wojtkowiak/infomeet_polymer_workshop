@@ -1,0 +1,20 @@
+{
+  "name": "my-components",
+  "version": "1.0.0",
+  "dependencies": {
+    "bower": "^1.5.3",
+    "gulp": "^3.9.0",
+    "gulp-webserver": "^0.9.1",
+    "gulp-bower": "0.x",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "3.0.4",
+    "gulp-replace": "^0.5.3",
+    "gulp-clean": "^0.3.1",
+    "gulp-sequence": "^0.4.0",
+    "gulp-cond": "^1.0.0",
+    "gulp-load-plugins": "1.0.0-rc.1",
+    "lodash": "^3.10.1",
+    "merge-stream": "^1.0.0",
+    "glob": "^5.0.14"
+  }
+}
