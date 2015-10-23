@@ -2,6 +2,7 @@
 <link rel="import" href="../bower/iron-icon/iron-icon.html">
 <link rel="import" href="../bower/iron-icons/iron-icons.html">
 <link rel="import" href="../my-checked-element-behavior/my-checked-element-behavior.html">
+<link rel="import" href="../my-utils/private-decorator.html">
 
 <!--
   `<my-checkbox>` implements simple button that can be checked or unchecked.
@@ -54,6 +55,9 @@
             }
         };
 
+        @privateMember
+        testProperty = 'testValue';
+
         _changedListener() {
             this._toggleIcon();
         }
@@ -62,6 +66,11 @@
             const element = this.$['checkbox-icon'];
             const icon = (this.checked) ? 'check-box' : 'check-box-outline-blank';
             element.setAttribute('icon', icon);
+        }
+
+        @privateMember
+        _testMethod() {
+            console.log('test');
         }
     }
 

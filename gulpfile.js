@@ -58,7 +58,8 @@ gulp.task('transpileJS', ['extractJS'], function () {
                                 optional: [
                                     "es7.decorators",
                                     "es7.classProperties"
-                                ]
+                                ],
+                                blacklist: ["useStrict"]
                             })))
                             .pipe($.sourcemaps.write(''))
                             .pipe(gulp.dest('./dist/' + dirs[i] + '/'))

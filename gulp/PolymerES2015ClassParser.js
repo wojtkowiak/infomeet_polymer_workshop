@@ -94,7 +94,6 @@ PolymerES2015ClassParser.prototype._getBehaviors = function () {
         if (element.type && element.type === "MethodDefinition") {
             if (element.key && element.key.name && element.key.name === 'behaviors') {
                 var elements = element.value.body.body[0].argument.elements;
-                console.log(elements);
                 for (var i = 0; i < elements.length; i++) {
                     behaviors.push(elements[i].name);
                 }
