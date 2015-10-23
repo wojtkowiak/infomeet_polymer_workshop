@@ -33,27 +33,43 @@
     </template>
 
 </dom-module>
-<script type="text/javascript">
+<script type="text/ecmascript-6">
 
-    Polymer({
+    class MyCheckbox {
 
-        is: 'my-checkbox',
+        constructor() {
+            this.behaviors = [
+                MyCheckedElementBehavior
+            ];
+        }
 
-        behaviors: [
-            MyCheckedElementBehavior
-        ],
+        beforeRegister() {
+            this.is = 'my-checkbox';
+        }
 
-        _changedListener: function() {
+        _changedListener() {
             this._toggleIcon();
-        },
+        }
 
-        _toggleIcon: function() {
-            var element = this.$['checkbox-icon'];
-            var icon = (this.checked) ? 'check-box' : 'check-box-outline-blank';
-
+        _toggleIcon() {
+            const element = this.$['checkbox-icon'];
+            const icon = (this.checked) ? 'check-box' : 'check-box-outline-blank';
             element.setAttribute('icon', icon);
         }
 
-    });
+    }
+
+    function reflectPublicPropertiesToPrototype(classDefinition) {
+        let instance = new classDefinition();
+        let keys =  Object.keys(instance);
+        for(let value of keys) {
+            if (value !== undefined) {
+                classDefinition.prototype[value] = instance[value];
+            }
+        }
+        return classDefinition;
+    }
+
+    Polymer(reflectPublicPropertiesToPrototype(MyCheckbox));
 
 </script>
