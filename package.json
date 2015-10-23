@@ -15,6 +15,8 @@
     "gulp-cond": "^1.0.0",
     "gulp-load-plugins": "1.0.0-rc.1",
     "gulp-crisper": "https://github.com/wojtkowiak/gulp-crisper",
+    "esprima": "^2.5.0",
+    "gulp-cheerio": "^0.6.2",
     "lodash": "^3.10.1",
     "merge-stream": "^1.0.0",
     "glob": "^5.0.14"

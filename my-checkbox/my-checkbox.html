@@ -40,8 +40,19 @@
         is = 'my-checkbox';
 
         behaviors = [
-                MyCheckedElementBehavior
+            myCheckedElementBehavior
         ];
+
+        properties = {
+            /**
+             *  some test prop
+             */
+            test: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            }
+        };
 
         _changedListener() {
             this._toggleIcon();

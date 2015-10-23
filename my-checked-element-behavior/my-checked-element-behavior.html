@@ -27,11 +27,11 @@ Version | Description
                 reflectToAttribute: true,
                 observer: '_checkedObserve'
             }
-        }
+        };
 
         listeners = {
             'tap': '_tapListener'
-        }
+        };
 
         _tapListener() {
             this.checked = !this.checked;
@@ -62,7 +62,7 @@ Version | Description
         return classDefinition;
     }
 
-    MyCheckedElementBehavior = reflectPublicPropertiesToPrototype(MyCheckedElementBehavior).prototype;
+    var myCheckedElementBehavior = reflectPublicPropertiesToPrototype(MyCheckedElementBehavior).prototype;
 
 
 </script>

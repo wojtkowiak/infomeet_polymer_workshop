@@ -8,6 +8,8 @@ var
 $.glob  = require('glob');
 $.merge = require('merge-stream');
 
+require('./gulp/demo.js')(gulp, $, fs);
+
 $.helpers = {
     isComponentDirectory: function(dirname) {
         return (
