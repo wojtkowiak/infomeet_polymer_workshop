@@ -1,0 +1,53 @@
+<link rel="import" href="../bower/polymer/polymer.html">
+
+<script type="text/javascript">
+/**
+Used for implementing elements that have a checked property.
+
+### Changelog
+
+Version | Description
+--------|-------------
+`0.1.0` | Initial version
+
+### Dependencies
+
+@polymerBehavior MyCheckedElementBehavior
+*/
+
+    MyCheckedElementBehavior = {
+        properties: {
+            /**
+             *  Specifies the checked state.
+             */
+            checked: {
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true,
+                observer: '_checkedObserve'
+            }
+        },
+
+        listeners: {
+            'tap': '_tapListener'
+        },
+
+        _tapListener: function() {
+            this.checked = !this.checked;
+        },
+
+        _checkedObserve: function() {
+            /**
+             * The event contains an object which checked state
+             *      e.g. {checked: this.checked}
+             * @event change
+             */
+            this.fire('change', {checked: this.checked});
+
+            if (this._changedListener) {
+                this._changedListener();
+            }
+        }
+    };
+
+</script>

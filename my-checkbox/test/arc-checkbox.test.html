@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="../../webcomponentsjs/webcomponents.min.js"></script>
+    <script src="../../node_modules/web-component-tester/browser.js"></script>
+    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <link rel="import" href="../../test-fixture/test-fixture.html">
+    <link rel="import" href="../../dist/arc-checkbox/arc-checkbox.html">
+</head>
+<body>
+<test-fixture id="checkbox-under-test">
+    <template>
+        <arc-checkbox id="CheckboxElementForTesting"></arc-checkbox>
+    </template>
+</test-fixture>
+<script>
+    describe('<arc-checkbox>', function () {
+        var checkboxUnderTest;
+
+        beforeEach(function () {
+            checkboxUnderTest = fixture('checkbox-under-test');
+        });
+
+        it('should be ok', function () {
+            expect(checkboxUnderTest).to.be.ok;
+        });
+
+        it('is not checked by default', function () {
+            expect(checkboxUnderTest.checked).to.be.false;
+        });
+
+        it('is enabled by default', function () {
+            expect(checkboxUnderTest.disabled).to.be.false;
+        });
+
+        it('should be checked / unhecked on click', function () {
+            checkboxUnderTest.click();
+            expect(checkboxUnderTest.checked).to.be.true;
+            checkboxUnderTest.click();
+            expect(checkboxUnderTest.checked).to.be.false;
+        });
+
+        it('should not check on click when disabled', function () {
+            checkboxUnderTest.disabled = true;
+            expect(checkboxUnderTest.checked).to.be.false;
+            checkboxUnderTest.click();
+            expect(checkboxUnderTest.checked).to.be.false;
+        });
+
+        it('should not change icon on click when disabled', function () {
+            checkboxUnderTest.disabled = true;
+            var iconName = checkboxUnderTest.querySelector('#icon').getAttribute('icon');
+            checkboxUnderTest.click();
+            expect(checkboxUnderTest.querySelector('#icon').getAttribute('icon')).to.be.equal(iconName);
+        });
+
+        it('should check / uncheck when label clicked', function () {
+            var checkboxLabel = checkboxUnderTest.querySelector('.checkbox-label');
+            checkboxLabel.click();
+            expect(checkboxUnderTest.checked).to.be.true;
+            checkboxLabel.click();
+            expect(checkboxUnderTest.checked).to.be.false;
+        });
+
+        it('should emit on-change event when clicked', function () {
+            var eventData = undefined;
+
+            checkboxUnderTest.addEventListener('change', function (e) {
+                eventData = e.detail;
+            });
+            checkboxUnderTest.click();
+            expect(eventData).to.be.defined;
+            expect(eventData.checked).to.be.true;
+            eventData = undefined;
+            checkboxUnderTest.click();
+            expect(eventData).to.be.defined;
+            expect(eventData.checked).to.be.false;
+        });
+    });
+</script>
+</body>
+</html>
+

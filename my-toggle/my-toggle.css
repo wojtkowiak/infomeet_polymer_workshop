@@ -1,0 +1,51 @@
+
+:host {
+  display: block;
+  position: relative;
+  height: 1.23em;
+  width: 2.22em; }
+
+:host .toggle-bar, :host .toggle-button {
+  cursor: pointer;
+  position: absolute; }
+
+:host .toggle-bar {
+  background-color: transparent;
+  border: 0.1em solid #CCCCCC;
+  height: 1.07em;
+  width: 100%;
+  top: 50%;
+  margin-top: -0.53em;
+  box-sizing: border-box;
+  border-radius: 0.57em;
+  transition: background-color linear .08s; }
+
+:host .toggle-button {
+  background-color: #FFFFFF;
+  border: 0.1em solid #CCCCCC;
+  height: 1.13em;
+  width: 1.13em;
+  border-radius: 0.61em;
+  transition: -webkit-transform linear .08s;
+  transition: transform linear .08s;
+  will-change: transform; }
+
+:host[disabled] .toggle-button {
+  background-color: #CCCCCC;
+  border-color: #CCCCCC;
+  cursor: no-drop; }
+
+:host[disabled] .toggle-bar {
+  background-color: transparent;
+  border-color: #CCCCCC;
+  cursor: no-drop; }
+
+:host[checked] .toggle-button {
+  background-color: #BCC93D;
+  border-color: #BCC93D;
+  -webkit-transform: translate(1em, 0);
+  -ms-transform: translate(1em, 0);
+  transform: translate(1em, 0); }
+
+:host[checked] .toggle-bar {
+  border-color: #BCC93D; }

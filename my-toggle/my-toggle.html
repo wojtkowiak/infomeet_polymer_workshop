@@ -1,0 +1,46 @@
+<link rel="import" href="../bower/polymer/polymer.html">
+<link rel="import" href="../my-checked-element-behavior/my-checked-element-behavior.html">
+
+<!--
+  `<my-toggle>` implements simple ON/OFF switch.
+  User can toggle state by tap on the button.
+
+        <my-toggle></my-toggle>
+        <my-toggle checked></my-toggle>
+
+  ### Changelog
+
+  Version | Description
+  --------|-------------
+  `0.1.0` | Initial version
+
+  
+  ### Dependencies
+
+  @element my-toggle
+  @demo demo/index.html
+-->
+
+<dom-module id="my-toggle">
+    <link rel="import" type="css" href="my-toggle.css">
+
+    <template>
+        <div class="toggle-bar"></div>
+        <div class="toggle-button"></div>
+    </template>
+
+    <script type="text/javascript">
+
+
+        Polymer({
+
+            is: 'my-toggle',
+
+            behaviors: [MyCheckedElementBehavior]
+        });
+
+
+    </script>
+</dom-module>
+
+

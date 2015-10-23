@@ -1,0 +1,59 @@
+<link rel="import" href="../bower/polymer/polymer.html">
+<link rel="import" href="../bower/iron-icon/iron-icon.html">
+<link rel="import" href="../bower/iron-icons/iron-icons.html">
+<link rel="import" href="../my-checked-element-behavior/my-checked-element-behavior.html">
+
+<!--
+  `<my-checkbox>` implements simple button that can be checked or unchecked.
+  User can toggle state by tapping on the checkbox.
+
+        <my-checkbox></my-checkbox>
+        <my-checkbox checked></my-checkbox>
+
+  ### Changelog
+
+  Version | Description
+  --------|-------------
+  `0.1.0` | Initial version
+
+  ### Dependencies
+
+  @element my-checkbox
+  @demo demo/index.html
+-->
+
+<dom-module id="my-checkbox">
+    <link rel="import" type="css" href="my-checkbox.css">
+
+    <template>
+        <iron-icon id="checkbox-icon" icon="check-box"></iron-icon>
+        <div class="checkbox-label">
+            <content></content>
+        </div>
+    </template>
+
+</dom-module>
+<script type="text/javascript">
+
+    Polymer({
+
+        is: 'my-checkbox',
+
+        behaviors: [
+            MyCheckedElementBehavior
+        ],
+
+        _changedListener: function() {
+            this._toggleIcon();
+        },
+
+        _toggleIcon: function() {
+            var element = this.$['checkbox-icon'];
+            var icon = (this.checked) ? 'check-box' : 'check-box-outline-blank';
+
+            element.setAttribute('icon', icon);
+        }
+
+    });
+
+</script>
