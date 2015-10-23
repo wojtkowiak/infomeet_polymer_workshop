@@ -1,6 +1,6 @@
 <link rel="import" href="../bower/polymer/polymer.html">
 
-<script type="text/javascript">
+<script type="text/ecmascript-6">
 /**
 Used for implementing elements that have a checked property.
 
@@ -15,8 +15,9 @@ Version | Description
 @polymerBehavior MyCheckedElementBehavior
 */
 
-    var MyCheckedElementBehavior = {
-        properties: {
+    class MyCheckedElementBehavior {
+
+        properties = {
             /**
              *  Specifies the checked state.
              */
@@ -26,17 +27,17 @@ Version | Description
                 reflectToAttribute: true,
                 observer: '_checkedObserve'
             }
-        },
+        }
 
-        listeners: {
+        listeners = {
             'tap': '_tapListener'
-        },
+        }
 
-        _tapListener: function() {
+        _tapListener() {
             this.checked = !this.checked;
-        },
+        }
 
-        _checkedObserve: function() {
+        _checkedObserve() {
             /**
              * The event contains an object which checked state
              *      e.g. {checked: this.checked}
@@ -48,6 +49,20 @@ Version | Description
                 this._changedListener();
             }
         }
-    };
+    }
+
+    function reflectPublicPropertiesToPrototype(classDefinition) {
+        let instance = new classDefinition();
+        let keys =  Object.keys(instance);
+        for(let value of keys) {
+            if (value !== undefined) {
+                classDefinition.prototype[value] = instance[value];
+            }
+        }
+        return classDefinition;
+    }
+
+    MyCheckedElementBehavior = reflectPublicPropertiesToPrototype(MyCheckedElementBehavior).prototype;
+
 
 </script>

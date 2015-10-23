@@ -52,7 +52,12 @@ gulp.task('transpileJS', ['extractJS'], function () {
                     streams.add(
                         gulp.src('./dist/' + dirs[i] + '/' + files[k])
                             .pipe($.sourcemaps.init())
-                            .pipe(wrap($.babel({})))
+                            .pipe(wrap($.babel({
+                                optional: [
+                                    "es7.decorators",
+                                    "es7.classProperties"
+                                ]
+                            })))
                             .pipe($.sourcemaps.write(''))
                             .pipe(gulp.dest('./dist/' + dirs[i] + '/'))
                     );
