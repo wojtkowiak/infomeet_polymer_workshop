@@ -1,16 +1,9 @@
 .idea
-*/
-!arc-*
-!arc-*/**
-arc-*/dist
-
-!home
-!home/**
-
-!gulp
-!gulp/**
+dist
 
 *.pyc
 *.iml
 
 bower
+node_modules
+
