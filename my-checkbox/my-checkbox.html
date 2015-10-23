@@ -58,6 +58,7 @@
         @privateMember
         testProperty = 'testValue';
 
+
         _changedListener() {
             this._toggleIcon();
         }
@@ -84,6 +85,14 @@
         }
         return classDefinition;
     }
+
+    MyCheckbox.prototype.___permitCalls = function(caller) {
+        if (caller) {
+            let functionBody = caller.toString();
+            return ['_observerEffect', '_createEventHandler', 'Polymer.nar'].some(value => functionBody.indexOf(value) >= 0);
+        }
+        return false;
+    };
 
     Polymer(reflectPublicPropertiesToPrototype(MyCheckbox));
 
